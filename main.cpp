@@ -23,6 +23,7 @@
 #include <QQmlContext>
 #include <QQuickTextDocument>
 #include <QScreen>
+#include "client.h"
 
 #include "cpphighlighter.h"
 #include "diceresultmodel.h"
@@ -31,7 +32,9 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
+    Client client;
 
+    client.connectToHost();
     engine.rootContext()->setContextProperty("ScreenW",1920);//1920x1080
     engine.rootContext()->setContextProperty("ScreenH",1080);
     DiceResultModel* model = new DiceResultModel();
@@ -44,12 +47,14 @@ int main(int argc, char *argv[])
     //engine.rootContext()->setContextProperty("CppHighLightedDocument",720);
 
     QmlControler ctr;
+    client.setQmlControler(&ctr);
     ctr.setResultModel(model);
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     QList<QObject*> roots = engine.rootObjects();
     QObject* root = roots.at(0);
     QObject::connect(root,SIGNAL(rollDiceCmd(QString)),&ctr,SLOT(rollDice(QString)));
+    client.setQObject(root);
 
     ctr.setEngine(&engine);
 

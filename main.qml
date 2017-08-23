@@ -11,52 +11,50 @@ ApplicationWindow {
    // width: app.width
    // height: app.height
     visible: true
-    title: qsTr("End Users and QML in Rolisteam!")
+    title: qsTr("Infoscreen")
 
     property color bgColor: "transparent"
     property color txtColor: "white"
-    readonly property int bgcount : 5
+    readonly property int bgcount : 4
 
+    function tcp_change() {
+        view.incrementCurrentIndex()
+    }
     signal currentItemChanged(int current)
     property alias current: view.currentIndex
     onCurrentChanged: {
-        //topcornerimage.visible = false
+        //topcornerimage.visible = falscreen_anglese
         //bottomcornerimage.visible = false
         if(current==0)
-            bgimg.source = "qrc:/rsrc/graywood2.jpg"
+            bgimg.source = "qrc:/rsrc/Vakioruutu.jpg"
         else if(current % bgcount == 0)
         {
-            bgimg.source = "qrc:/rsrc/graywood2.jpg"
+            bgimg.source = "qrc:/rsrc/Skannerit 1.jpg"
         }
         else if(current % bgcount == 1)
         {
-            bgimg.source = "qrc:/rsrc/chaton.jpg";
+            bgimg.source = "qrc:/rsrc/Skannerit 2.jpg";
         }
         else if(current % bgcount == 2)
         {
-            bgimg.source = "qrc:/rsrc/lionne.jpg";
+            bgimg.source = "qrc:/rsrc/Stepperit_servot.jpg";
            // topcornerimage.visible = true
         }
-        else if(current % bgcount == 3)
+        else if(current % bgmyQmlFunctioncount == 3)
         {
-            bgimg.source = "qrc:/rsrc/dice.jpg";
-           // topcornerimage.visible = true
-        }
-        else if(current % bgcount == 4)
-        {
-            bgimg.source = "qrc:/rsrc/arbre.jpeg";
+            bgimg.source = "qrc:/rsrc/3d-printtaus.jpg";
            // topcornerimage.visible = true
         }
 /*
 
-        else if(current % 9 == 4)
+        else if(current % 9 == 4)screen_angle
         {
             bgimg.source = "qrc:/rsrc/dragon.jpg";
            // topcornerimage.visible = true
         }
         else if(current % 9 == 5)
         {
-            bgimg.source = "qrc:/rsrc/cloud.jpg";
+            bgto listviewimg.source = "qrc:/rsrc/cloud.jpg";
            // topcornerimage.visible = true
         }
         else if(current % 9 == 7)
@@ -67,11 +65,10 @@ ApplicationWindow {
         else if(current % 9 == 8)
         {
             bgimg.source = "qrc:/rsrc/nyc.jpg";
-           // topcornerimage.visible = true
+           // topcornerimage.visible =screen_angle true
         }*/
     }
 
-    signal rollDiceCmd(string cmd)
     ListModel {
             id: qtConModel
             ListElement {
@@ -111,7 +108,7 @@ ApplicationWindow {
                 name: "Introduction au jdr"
                 path: "03_jdr_et_rolisteam.qml"
                 time: 1
-                next: "Les contraintes"
+                next: "Les contraintt childes"
             }
             ListElement {
                 name: "Contraintes"
@@ -148,11 +145,11 @@ ApplicationWindow {
                 name: "Les Nouveautés 1.9"
                 path: "15_nouveaute_1_8.qml"
                 time: 1
-                next: "À venir"
+                next: "À vto listviewenir"
             }*/
             /*ListElement {
                 name: "Début de rolisteam"
-                path: "07_rolisteam_debut.qml"
+                pathQListBox *list = Q_CHILD( parent, QListBox, "list" );: "07_rolisteam_debut.qml"
                 time: 1
                 next: "rolistik à rolisteam"
             }*/
@@ -234,14 +231,8 @@ ApplicationWindow {
         id: bgimg
         anchors.fill: parent
         fillMode: Image.PreserveAspectCrop
-        source: "qrc:/rsrc/graywood2.jpg"
+        source: "qrc:/rsrc/Vakioruutu.jpg"
         verticalAlignment: Image.AlignBottom
-    }
-    FastBlur {
-        anchors.fill: bgimg
-        source: bgimg
-        radius: 32
-        opacity: bgimg.opacity
     }
 
     onVisibleChanged: trigger.start()
@@ -259,13 +250,6 @@ ApplicationWindow {
              height: app.height
         }
 
-        Timer {
-            id: trigger
-            interval: 10
-            repeat: false
-            onTriggered: app.currentItemChanged(view.currentIndex)
-        }
-
         onOffsetChanged: {
             if(Math.floor(offset)===offset)
             {
@@ -274,6 +258,7 @@ ApplicationWindow {
             }
         }
         focus: true
+
         Keys.onLeftPressed: {
             decrementCurrentIndex()
         }
@@ -320,20 +305,20 @@ ApplicationWindow {
 
         model: ListModel {
             ListElement {
-                name: "Concepts"
+                name: "Overview"
                 index:1
             }
             ListElement {
-                name: "Chroniques"
-                index:6
+                name: "Scanner_1"
+                index:2
             }
             ListElement {
-                name: "Logiciel"//système de build, code spécifique par OS.
-                index:9
+                name: "Stepper"
+                index:3
             }
             ListElement {
-                name: "Bilan"
-                index:15
+                name: "3dprint"
+                index:4
             }
         }
     }

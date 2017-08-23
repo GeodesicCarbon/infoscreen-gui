@@ -7,7 +7,8 @@ CONFIG += c++11
 SOURCES += main.cpp \
     qmlcontroler.cpp \
     cpphighlighter.cpp \
-    diceresultmodel.cpp
+    diceresultmodel.cpp \
+    client.cpp
 
 RESOURCES += qml.qrc
 
@@ -23,7 +24,8 @@ OTHER_FILES += pages/*.qml *.qml pagesQtCon/*.qml
 HEADERS += \
     qmlcontroler.h \
     cpphighlighter.h \
-    diceresultmodel.h
+    diceresultmodel.h \
+    client.h
 
 
 FORMS += \

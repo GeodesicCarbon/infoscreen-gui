@@ -4,27 +4,9 @@
         <file>pages/01_intro.qml</file>
         <file>pages/02_presentation.qml</file>
         <file>pages/03_jdr_et_rolisteam.qml</file>
-        <file>rsrc/RPG-2009-Berlin-2.jpg</file>
-        <file>rsrc/ubuntu.png</file>
-        <file>rsrc/Rolisteam.svg</file>
         <file>pages/04_jdr_avantages_pb.qml</file>
         <file>pages/05_avantage_jdr_virtuel.qml</file>
-        <file>rsrc/cc.png</file>
         <file>pages/043_Exemple_code_1.qml</file>
-        <file>rsrc/Rolisteam1.8.png</file>
-        <file>rsrc/Rolisteam1.png</file>
-        <file>rsrc/rolistik.png</file>
-        <file>rsrc/cliDice.png</file>
-        <file>rsrc/ircDice.png</file>
-        <file>rsrc/diceColor.png</file>
-        <file>rsrc/Masque-Video.png</file>
-        <file>rsrc/mindmap.svg</file>
-        <file>rsrc/getIdmediaRolistik.png</file>
-        <file>rsrc/getIdRolisteam1.8.png</file>
-        <file>rsrc/getIdRolisteam1.png</file>
-        <file>rsrc/rolisteamScreen1.8.png</file>
-        <file>rsrc/Rolisteam1Network.png</file>
-        <file>rsrc/rolistikNetwork.png</file>
         <file>pages/06_fonctionnalites_rolisteam.qml</file>
         <file>pages/20_FAQ.qml</file>
         <file>pages/19_objectif_rolisteam_libre.qml</file>
@@ -39,42 +21,14 @@
         <file>pages/10_frise_chronologique.qml</file>
         <file>pages/08_Rolistik_a_Rolisteam.qml</file>
         <file>pages/07_rolisteam_debut.qml</file>
-        <file>rsrc/screen.png</file>
-        <file>rsrc/notes.png</file>
-        <file>rsrc/map.jpg</file>
-        <file>rsrc/chat.png</file>
-        <file>rsrc/dice.png</file>
-        <file>rsrc/sound.png</file>
-        <file>rsrc/picture.png</file>
-        <file>rsrc/entree.png</file>
-        <file>rsrc/ddaydice.png</file>
-        <file>rsrc/music_screen.jpg</file>
-        <file>rsrc/darkorangeSkin.jpg</file>
-        <file>rsrc/darkfusiontheme.jpg</file>
-        <file>rsrc/generat.png</file>
-        <file>rsrc/generatorConvertor.png</file>
-        <file>rsrc/v1.8.png</file>
-        <file>rsrc/fiche_perso.png</file>
         <file>pagesQtCon/01_qtCon_intro.qml</file>
         <file>pagesQtCon/02_qtCon_rcse.qml</file>
         <file>pagesQtCon/03_qtCon_stayintouch.qml</file>
-        <file>rsrc/charactersheet_in_rolisteam.png</file>
-        <file>rsrc/design_cs.png</file>
-        <file>rsrc/qml_generated.png</file>
-        <file>rsrc/test_rcse.png</file>
-        <file>rsrc/chaton.jpg</file>
-        <file>rsrc/graywood.jpg</file>
-        <file>rsrc/graywood2.jpg</file>
-        <file>rsrc/lionne.jpg</file>
-        <file>rsrc/arbre.jpeg</file>
-        <file>rsrc/cloud.jpg</file>
-        <file>rsrc/dice.jpg</file>
-        <file>rsrc/dragon.jpg</file>
-        <file>rsrc/nyc.jpg</file>
-        <file>rsrc/square.jpg</file>
-        <file>rsrc/opening_CharacterSheet.mp4</file>
-        <file>rsrc/end.png</file>
         <file>pages/19_grafilabor.qml</file>
-        <file>rsrc/diagram.jpg</file>
+        <file>rsrc/3d-printtaus.jpg</file>
+        <file>rsrc/Skannerit 1.jpg</file>
+        <file>rsrc/Skannerit 2.jpg</file>
+        <file>rsrc/Stepperit_servot.jpg</file>
+        <file>rsrc/Vakioruutu.jpg</file>
     </qresource>
 </RCC>
