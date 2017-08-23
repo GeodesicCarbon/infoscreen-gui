@@ -14,37 +14,46 @@ ApplicationWindow {
     title: qsTr("Infoscreen")
 
     property color bgColor: "transparent"
-    property color txtColor: "white"
+    property color txtColor: "transparent"
     readonly property int bgcount : 4
 
-    function tcp_change() {
-        view.incrementCurrentIndex()
+    function tcp_change(pZoom,pArea,pPage) {
+//        view.currentIndex=pArea;
+        // view.incrementCurrentIndex()
+        switch (pArea) {
+        case 3: bgimg.source = "qrc:/rsrc/Stepperit_servot.jpg";
+                break;
+        case 2: bgimg.source = "qrc:/rsrc/3d-printtaus.jpg";
+                break;
+        case 1: bgimg.source = "qrc:/rsrc/Skannerit 1.jpg";
+            break;
+        }
     }
     signal currentItemChanged(int current)
     property alias current: view.currentIndex
-    onCurrentChanged: {
-        //topcornerimage.visible = falscreen_anglese
-        //bottomcornerimage.visible = false
-        if(current==0)
-            bgimg.source = "qrc:/rsrc/Vakioruutu.jpg"
-        else if(current % bgcount == 0)
-        {
-            bgimg.source = "qrc:/rsrc/Skannerit 1.jpg"
-        }
-        else if(current % bgcount == 1)
-        {
-            bgimg.source = "qrc:/rsrc/Skannerit 2.jpg";
-        }
-        else if(current % bgcount == 2)
-        {
-            bgimg.source = "qrc:/rsrc/Stepperit_servot.jpg";
-           // topcornerimage.visible = true
-        }
-        else if(current % bgmyQmlFunctioncount == 3)
-        {
-            bgimg.source = "qrc:/rsrc/3d-printtaus.jpg";
-           // topcornerimage.visible = true
-        }
+//    onCurrentChanged: {
+//        //topcornerimage.visible = falscreen_anglese
+//        //bottomcornerimage.visible = false
+//        if(current==0)
+//            bgimg.source = "qrc:/rsrc/Vakioruutu.jpg"
+//        else if(current % bgcount == 0)
+//        {
+//            bgimg.source = "qrc:/rsrc/Skannerit 1.jpg"
+//        }
+//        else if(current % bgcount == 1)
+//        {
+//            bgimg.source = "qrc:/rsrc/Skannerit 2.jpg";
+//        }
+//        else if(current % bgcount == 2)
+//        {
+//            bgimg.source = "qrc:/rsrc/Stepperit_servot.jpg";
+//           // topcornerimage.visible = true
+//        }
+//        else if(current % bgmyQmlFunctioncount == 3)
+//        {
+//            bgimg.source = "qrc:/rsrc/3d-printtaus.jpg";
+//           // topcornerimage.visible = true
+//        }
 /*
 
         else if(current % 9 == 4)screen_angle
@@ -67,7 +76,7 @@ ApplicationWindow {
             bgimg.source = "qrc:/rsrc/nyc.jpg";
            // topcornerimage.visible =screen_angle true
         }*/
-    }
+   // }
 
     ListModel {
             id: qtConModel
@@ -230,7 +239,7 @@ ApplicationWindow {
     Image {
         id: bgimg
         anchors.fill: parent
-        fillMode: Image.PreserveAspectCrop
+        // fillMode: Image.Center
         source: "qrc:/rsrc/Vakioruutu.jpg"
         verticalAlignment: Image.AlignBottom
     }
@@ -322,7 +331,6 @@ ApplicationWindow {
             }
         }
     }
-
     Text {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
@@ -330,7 +338,8 @@ ApplicationWindow {
         anchors.bottomMargin: 50
         color: app.txtColor
         text: (view.currentIndex+1)+"/"+view.count
-        visible: view.currentIndex>0 ? true : false
+        visible: false
+//        visible: view.currentIndex>0 ? true : false
     }
 
     Image {
@@ -345,6 +354,7 @@ ApplicationWindow {
         color: app.txtColor
         anchors.right: parent.right
         text: panelModel.get(view.currentIndex).next+">"
-        visible: panelModel.get(view.currentIndex).next !== "" ? true : false
+        visible: false
+            //        visible: panelModel.get(view.currentIndex).next !== "" ? true : false
     }
 }

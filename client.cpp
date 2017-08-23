@@ -29,13 +29,26 @@ void Client::readData()
     qDebug() << "reading...";
     // read the data from the socket
     // emit
-    qDebug() << socket->readAll();
+
+    QString dataFromSocket = socket->readAll();
+    qDebug() << dataFromSocket;
+    int pZoom, pArea, pPage;
+    QByteArray oString = dataFromSocket.toLatin1();
+    const char *pszString = oString.constData();
+    sscanf(pszString,"zoom: %d area: %d gesture: %d",&pZoom,&pArea,&pPage);
+    qDebug() << "Area: " << pArea;
     // ctr->currentPageHasChanged(3);
 
 //    QObjectList list = root->children();
-     QVariant returnedValue;
-     QVariant msg = "Hello from C++";
-     QMetaObject::invokeMethod(root, "tcp_change");
+     QVariant retVal;
+     QMetaObject::invokeMethod(root, "tcp_change",
+        Q_RETURN_ARG(QVariant, retVal),
+        Q_ARG(QVariant, pZoom),
+        Q_ARG(QVariant, pArea),
+        Q_ARG(QVariant, pPage));
+
+
+
 }
 
 QByteArray IntToArray(qint32 source) //Use qint32 to ensure that the number have 4 bytes
