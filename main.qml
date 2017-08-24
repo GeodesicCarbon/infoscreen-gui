@@ -16,6 +16,7 @@ ApplicationWindow {
     property color bgColor: "transparent"
     property color txtColor: "transparent"
     readonly property int bgcount : 4
+    property int currentSlide: 4
 
     function tcp_change(pZoom,pArea,pPage) {
 //        view.currentIndex=pArea;
@@ -23,24 +24,34 @@ ApplicationWindow {
         switch (pArea) {
         case 4: bgimg.source = "qrc:/rsrc/Vakioruutu.jpg";
                 bgimg.scale = 1;
+                currentSlide = 4;
                 break;
         case 3: bgimg.source = "qrc:/rsrc/Stepperit_servot.jpg";
                 bgimg.scale = 1;
+                currentSlide = 3;
                 break;
         case 2: bgimg.source = "qrc:/rsrc/3d-printtaus.jpg";
                 bgimg.scale = 1;
+                currentSlide = 2;
                 break;
         case 1: bgimg.source = "qrc:/rsrc/Skannerit 1.jpg";
                 bgimg.scale = 1;
+                currentSlide = 1;
                 break;
-        case 0: bgimg.source = "qrc:/rsrc/Hubble.jpg";
-                bgimg.scale = (200 - pZoom)/100;
+        case 6: bgimg.source = "qrc:/rsrc/Hubble.jpg";
+                bgimg.scale = (pZoom+100)/100;
+                currentSlide = 6;
                 break;
-        case -1: if (bgimg.source.localeCompare("qrc:/rsrc/Skannerit 1.jpg") === 0) {
+        case 5: if (currentSlide === 1 && pPage === 2) {
+                    bgimg.source = "qrc:/rsrc/Skannerit 2.jpg";
+                    console.info("wjat");
+                    currentSlide = 11;
+                } else if (currentSlide === 11 && pPage !== 0) {
                     bgimg.source = "qrc:/rsrc/Skannerit 1.jpg";
-                } else if (bgimg.source.localeCompare("qrc:/rsrc/Skannerit 2.jpg") === 0) {
-                     bgimg.source = "qrc:/rsrc/Skannerit 2.jpg";
+                    currentSlide = 1;
+                console.info("the wjat");
                 }
+                console.info("case 5");
                 break;
         default: break;
         }
