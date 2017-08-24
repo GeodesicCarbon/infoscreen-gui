@@ -21,12 +21,16 @@ ApplicationWindow {
 //        view.currentIndex=pArea;
         // view.incrementCurrentIndex()
         switch (pArea) {
+        case 4: bgimg.source = "qrc:/rsrc/Vakioruutu.jpg";
+                break;
         case 3: bgimg.source = "qrc:/rsrc/Stepperit_servot.jpg";
                 break;
         case 2: bgimg.source = "qrc:/rsrc/3d-printtaus.jpg";
                 break;
         case 1: bgimg.source = "qrc:/rsrc/Skannerit 1.jpg";
             break;
+        case 0: bgimg.source = "qrc:/rsrc/Hubble.jpg";
+            bgimg.scale = (200 - pZoom)/100;
         }
     }
     signal currentItemChanged(int current)
