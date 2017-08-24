@@ -22,15 +22,27 @@ ApplicationWindow {
         // view.incrementCurrentIndex()
         switch (pArea) {
         case 4: bgimg.source = "qrc:/rsrc/Vakioruutu.jpg";
+                bgimg.scale = 1;
                 break;
         case 3: bgimg.source = "qrc:/rsrc/Stepperit_servot.jpg";
+                bgimg.scale = 1;
                 break;
         case 2: bgimg.source = "qrc:/rsrc/3d-printtaus.jpg";
+                bgimg.scale = 1;
                 break;
         case 1: bgimg.source = "qrc:/rsrc/Skannerit 1.jpg";
-            break;
+                bgimg.scale = 1;
+                break;
         case 0: bgimg.source = "qrc:/rsrc/Hubble.jpg";
-            bgimg.scale = (200 - pZoom)/100;
+                bgimg.scale = (200 - pZoom)/100;
+                break;
+        case -1: if (bgimg.source.localeCompare("qrc:/rsrc/Skannerit 1.jpg") === 0) {
+                    bgimg.source = "qrc:/rsrc/Skannerit 1.jpg";
+                } else if (bgimg.source.localeCompare("qrc:/rsrc/Skannerit 2.jpg") === 0) {
+                     bgimg.source = "qrc:/rsrc/Skannerit 2.jpg";
+                }
+                break;
+        default: break;
         }
     }
     signal currentItemChanged(int current)
